@@ -1,0 +1,15 @@
+---
+- hosts: all
+  user: root
+
+
+  tasks:
+    - name: create user $new_user
+      shell: /usr/sbin/useradd -d /home/$new_user -G sudo -m -s /usr/bin/zsh $new_user
+
+    - name: copy $new_user dotfiles
+      copy: src=/srv/ansible/files/dotfiles.tgz dest=/home/$new_user/dotfiles.tgz
+              owner=$new_user group=$new_user
+
+    - name: tar xvf $new_user dotfiles
+      raw: /bin/tar xf /home/$new_user/dotfiles.tgz -C /home/$new_user/
