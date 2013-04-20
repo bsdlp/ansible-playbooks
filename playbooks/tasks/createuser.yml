@@ -1,11 +1,18 @@
 ---
 - hosts: all
   user: root
+  vars_prompt:
+    - name: "new_user_password"
+      prompt: "Enter $new_user password"
+      private: yes
+      encrypt: "md5_crypt"
+      confirm: yes
+      salt_size: 7
 
 
   tasks:
     - name: create user $new_user
-      shell: /usr/sbin/useradd -d /home/$new_user -G sudo -m -s /usr/bin/zsh $new_user
+      user: name=jchen state=present password=$new_user_password append=sudo shell=/usr/bin/zsh home=/home/$new_user createhome=yes
 
     - name: copy $new_user dotfiles
       copy: src=/srv/ansible/files/dotfiles.tgz dest=/home/$new_user/dotfiles.tgz
