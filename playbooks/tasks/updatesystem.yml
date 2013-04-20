@@ -34,5 +34,9 @@
             group=root
             mode=0644
 
+    - name: update cache again
+      raw: apt-get update
+
     - name: update system
-      apt: update_cache=yes upgrade=dist
+      apt: upgrade=dist
+
