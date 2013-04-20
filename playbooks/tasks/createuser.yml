@@ -12,7 +12,7 @@
 
   tasks:
     - name: create user $new_user
-      user: name=jchen state=present password=$new_user_password append=sudo shell=/usr/bin/zsh home=/home/$new_user createhome=yes
+      user: name=jchen state=present password=$new_user_password append=yes groups=sudo shell=/usr/bin/zsh home=/home/$new_user createhome=yes
 
     - name: copy $new_user dotfiles
       copy: src=/srv/ansible/files/dotfiles.tgz dest=/home/$new_user/dotfiles.tgz
