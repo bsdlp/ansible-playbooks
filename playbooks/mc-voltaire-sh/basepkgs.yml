@@ -10,6 +10,7 @@
       - nginx
       - uwsgi
       - uwsgi-plugin-python
+      - libpq-dev
     
     - name: install pip 
       easy_install: name=pip
