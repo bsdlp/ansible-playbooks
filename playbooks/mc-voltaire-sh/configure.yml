@@ -19,5 +19,5 @@
       file: path=/etc/nginx/enable-sites state=directory
 
     - name: copy over nginx configuration
-      copy: /srv/ansible/files/git/config-files/etc/nginx/avail-sites/mc-voltaire-sh.conf dest=/etc/nginx/enable-sites/mc-voltaire-sh.ini owner=root group=root mode=0644
+      copy: src=/srv/ansible/files/git/config-files/etc/nginx/avail-sites/mc-voltaire-sh.conf dest=/etc/nginx/enable-sites/mc-voltaire-sh.ini owner=root group=root mode=0644
 
