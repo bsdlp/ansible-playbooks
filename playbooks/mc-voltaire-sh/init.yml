@@ -2,7 +2,7 @@
 - hosts: mc-voltaire-sh
   user: root
 
-  - include: tasks/mc-voltaire-sh/basepkgs.yml
-  - include: tasks/mc-voltaire-sh/configure.yml
-  - include: tasks/mc-voltaire-sh/init-site.yml
+  - include: basepkgs.yml
+  - include: configure.yml
+  - include: init-site.yml
 

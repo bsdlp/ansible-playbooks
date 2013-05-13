@@ -2,9 +2,9 @@
 - hosts: all
   user: root
 
-  - include: tasks/createuser.yml new_user=jchen
-  - include: tasks/updatesystem.yml
-  - include: tasks/basepkgs.yml
+  - include: createuser.yml new_user=jchen
+  - include: updatesystem.yml
+  - include: basepkgs.yml
 
 
 
