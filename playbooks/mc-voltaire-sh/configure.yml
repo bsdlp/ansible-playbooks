@@ -12,3 +12,12 @@
     - name: symlink to enable uwsgi configuration
       file: src=/etc/uwsgi/apps-available/mc-voltaire-sh.ini dest=/etc/uwsgi/apps-enabled/mc-voltaire-sh.ini owner=www-data group=www-data state=link
 
+    - name: default debian nginx directories suck
+      file: path=/etc/nginx/sites-* state=absent
+
+    - name: create tab-friendly site configuration directories
+      file: path=/etc/nginx/enable-sites state=directory
+
+    - name: copy over nginx configuration
+      copy: /srv/ansible/files/git/config-files/etc/nginx/avail-sites/mc-voltaire-sh.conf dest=/etc/nginx/enable-sites/mc-voltaire-sh.ini owner=root group=root mode=0644
+
