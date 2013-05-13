@@ -1,10 +1,11 @@
 ---
 - hosts: all
   user: root
+  
 
-  - include: createuser.yml new_user=jchen
-  - include: updatesystem.yml
-  - include: basepkgs.yml
+- include: createuser.yml new_user=jchen
+- include: updatesystem.yml
+- include: basepkgs.yml
 
 
 
