@@ -1,0 +1,19 @@
+---
+- hosts: mc-voltaire-sh
+  user: root
+  tasks:
+
+
+    - name: default packages to install
+      apt: state=latest name=$item update_cache=yes
+      with_items:
+      - nginx
+      - uwsgi
+      - uwsgi-plugin-python
+    
+    - name: install pip 
+      easy_install: name=pip
+
+    - name: install virtualenv
+      pip: name=virtualenv
+
