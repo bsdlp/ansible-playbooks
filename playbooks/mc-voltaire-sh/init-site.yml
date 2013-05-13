@@ -4,7 +4,7 @@
 
   tasks:
     - name: create site directory
-      file: path=/srv/www/ owner=www-data group=www-data
+      file: path=/srv/www/ owner=www-data group=www-data state=directory
 
     - name: git clone site
       git: repo=git://github.com/voltaire/minecraft-site.git dest=/srv/www/mc-voltaire-sh
