@@ -13,5 +13,5 @@
       pip: requirements=/srv/www/mc-voltaire-sh/requirements.txt virtualenv=/srv/www/mc-voltaire-sh/application/env
 
     - name: config.py
-      file: src=/srv/ansible/files/git/config-files/srv/www/mc-voltaire-sh/application/config.py dest=/srv/www/mc-voltaire-sh/application/config.py user=www-data group=www-data mode=0644
+      copy: src=/srv/ansible/files/git/config-files/srv/www/mc-voltaire-sh/application/config.py dest=/srv/www/mc-voltaire-sh/application/config.py owner=www-data group=www-data mode=0644
 
