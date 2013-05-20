@@ -16,7 +16,7 @@
 
     - name: copy jchen dotfiles
       copy: src=/srv/ansible/files/dotfiles.tgz dest=/home/jchen/dotfiles.tgz
-              owner=$new_user group=$new_user
+              owner=jchen group=jchen
 
     - name: tar xvf jchen dotfiles
       raw: /bin/tar xf /home/jchen/dotfiles.tgz -C /home/jchen/
