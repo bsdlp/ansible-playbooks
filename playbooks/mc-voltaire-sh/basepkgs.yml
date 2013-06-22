@@ -3,6 +3,8 @@
   user: root
   tasks:
 
+    - name: install python-apt
+      raw: /usr/bin/apt-get install -y python-apt
 
     - name: default packages to install
       apt: state=latest name=$item update_cache=yes
@@ -10,6 +12,8 @@
       - nginx
       - uwsgi
       - uwsgi-plugin-python
+      - python-dev
+      - python-setuptools
       - libpq-dev
     
     - name: install pip 
