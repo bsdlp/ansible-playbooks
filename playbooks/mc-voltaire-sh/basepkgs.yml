@@ -6,6 +6,12 @@
     - name: install python-apt
       raw: /usr/bin/apt-get install -y python-apt
 
+    - name: update apt sources.list
+      copy: src=/srv/ansible/files/git/config-files/etc/apt/sources.list dest=/etc/apt/sources.list owner=root group=root mode=0644
+
+    - name: update system
+      apt: update_cache=yes upgrade=full
+
     - name: default packages to install
       apt: state=latest name=$item update_cache=yes
       with_items:
