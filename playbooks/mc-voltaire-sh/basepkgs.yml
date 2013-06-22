@@ -9,6 +9,7 @@
     - name: default packages to install
       apt: state=latest name=$item update_cache=yes
       with_items:
+      - git
       - nginx
       - uwsgi
       - uwsgi-plugin-python
