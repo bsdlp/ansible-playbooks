@@ -1,11 +1,9 @@
 ---
 - hosts: all
   user: root
-  tasks:
-
-
+  pre-tasks:
     - name: add sources
-      copy: src=/srv/ansible/files/git/config-files/etc/apt/sources.list
+      copy: src=deb-sources.list
             dest=/etc/apt/sources.list
             owner=root
             group=root
@@ -16,10 +14,13 @@
 
     - name: install python-apt
       raw: apt-get -y install python-apt
+      notify: apt cache update
 
-    - name: update cache again
-      raw: apt-get update
-
+  tasks:
     - name: update system
       apt: upgrade=dist
+
+  post-tasks:
+    - name: install things
+      notify: install base packages
 
