@@ -1,26 +1,21 @@
 ---
-- hosts: all
-  user: root
-  pre-tasks:
-    - name: add sources
-      copy: src=deb-sources.list
-            dest=/etc/apt/sources.list
-            owner=root
-            group=root
-            mode=0644
+- name: add sources
+  copy: src=deb-sources.list
+        dest=/etc/apt/sources.list
+        owner=root
+        group=root
+        mode=0644
 
-    - name: update apt cache
-      raw: apt-get update
+- name: update apt cache
+  raw: apt-get update
 
-    - name: install python-apt
-      raw: apt-get -y install python-apt
-      notify: apt cache update
+- name: install python-apt
+  raw: apt-get -y install python-apt
+  notify: apt cache update
 
-  tasks:
-    - name: update system
-      apt: upgrade=dist
+- name: update system
+  apt: upgrade=dist
 
-  post-tasks:
-    - name: install things
-      notify: install base packages
+- name: install things
+  notify: install base packages
 

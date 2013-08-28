@@ -1,7 +1,5 @@
 ---
-- hosts: all
-  user: root
-  vars_prompt:
+- vars_prompt:
     - name: "new_user_password"
       prompt: "Enter $new_user password"
       private: yes
@@ -9,16 +7,15 @@
       confirm: yes
       salt_size: 7
 
-  tasks:
-    - name: create user jchen
-      user: name=jchen state=present password=$new_user_password append=yes groups=sudo shell=/usr/bin/zsh home=/home/jchen createhome=yes
+- name: create user jchen
+  user: name=jchen state=present password=$new_user_password append=yes groups=sudo shell=/usr/bin/zsh home=/home/jchen createhome=yes
 
-    - name: copy jchen dotfiles
-      copy: src=dotfiles.tgz
-            dest=/home/jchen/dotfiles.tgz
-            owner=jchen
-            group=jchen
+- name: copy jchen dotfiles
+  copy: src=dotfiles.tgz
+        dest=/home/jchen/dotfiles.tgz
+        owner=jchen
+        group=jchen
 
-    - name: tar xvf jchen dotfiles
-      raw: /bin/tar xf /home/jchen/dotfiles.tgz -C /home/jchen/
+- name: tar xvf jchen dotfiles
+  raw: /bin/tar xf /home/jchen/dotfiles.tgz -C /home/jchen/
 
