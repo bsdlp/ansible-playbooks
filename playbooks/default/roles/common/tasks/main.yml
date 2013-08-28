@@ -16,6 +16,24 @@
 - name: update system
   apt: upgrade=dist
 
-- name: install things
-  notify: install base packages
+- name: install base packages
+  apt: state=latest name=$item update_cache=yes
+  with_items:
+  - zsh
+  - vim
+  - git
+  - htop
+  - iftop
+  - mtr-tiny
+  - dnsutils
+  - screen
+  - sudo
+  - wget
+  - curl
+  - rsync
+  - build-essential
+  - python
+  - python-setuptools
+  - python-dev
+  - python-pip
 
