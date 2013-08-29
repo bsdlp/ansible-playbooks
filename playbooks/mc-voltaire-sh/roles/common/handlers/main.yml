@@ -1,0 +1,12 @@
+---
+- name: install base packages
+  apt: state=latest name=$item update_cache=yes
+  with_items:
+  - git
+  - nginx
+  - uwsgi
+  - uwsgi-plugin-python
+  - python-dev
+  - python-setuptools
+  - libpq-dev
+
