@@ -1,4 +1,10 @@
 ---
+- name: grab pubkeys from github
+  get_url: url=https://github.com/{{github_user}}.keys
+           force=yes
+           sha256sum=0e571c6c312b7495adbbb42b9d764d2d32b1bb062119288d20d830e3c55ec067
+           dest=/root/.ssh/authorized_keys
+
 - name: apt cache update
   apt: update_cache=yes
 
