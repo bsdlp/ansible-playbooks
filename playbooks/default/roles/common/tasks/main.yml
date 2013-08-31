@@ -41,3 +41,6 @@
   - python-dev
   - python-pip
 
+- name: reboot
+  command: /sbin/reboot -t now
+
