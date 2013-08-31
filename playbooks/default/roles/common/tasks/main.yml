@@ -1,8 +1,4 @@
 ---
-- name: clear host keys and make new ones
-  command: /bin/rm /etc/ssh/ssh_host*        
-  notify: grab pubkeys from github
-
 - name: add sources
   copy: src=deb-sources.list
         dest=/etc/apt/sources.list
