@@ -1,0 +1,7 @@
+---
+- name: apt cache update
+  apt: update_cache=yes
+
+- name: install steamcmd
+  raw: mkdir -p /srv/steam/bin/ && curl http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar xz -C /srv/steam/bin/
+
