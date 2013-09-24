@@ -36,6 +36,7 @@
   - python-setuptools
   - python-dev
   - python-pip
+  - stow
 
 - name: reboot
   command: /sbin/reboot -t now
