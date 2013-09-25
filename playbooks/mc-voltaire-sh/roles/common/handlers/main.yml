@@ -9,4 +9,5 @@
   - python-dev
   - python-setuptools
   - libpq-dev
+  - stow
 
