@@ -1,0 +1,17 @@
+---
+- name: add-architecture i386
+  command: dpkg --add-architecture i386
+
+- name: install 32bit libs
+  apt: state=latest name=$item update_cache=yes
+  with_items:
+  - libc6-i386
+  - lib32gcc1
+
+- name: add steam user
+  user: name=steam home=/srv/steam 
+  notify: install steamcmd
+
+- name: install csgo
+  script: csgoinstall  
+

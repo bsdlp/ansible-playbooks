@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd /srv/steam/
+sudo -u steam /srv/steam/bin/steamcmd.sh \
+    +login anonymous \
+    +force_install_dir \
+    /srv/steam/csgo/ \
+    +app_update 740 validate \
+    +quit
+

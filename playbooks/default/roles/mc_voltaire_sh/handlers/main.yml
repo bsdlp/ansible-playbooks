@@ -1,0 +1,9 @@
+---
+- name: install webserver packages
+  apt: state=latest name=$item update_cache=yes
+  with_items:
+  - nginx
+  - uwsgi
+  - uwsgi-plugin-python
+  - libpq-dev
+
