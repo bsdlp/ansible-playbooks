@@ -1,6 +1,0 @@
----
-- hosts: mc-voltaire-sh
-  user: root
-  roles:
-      - common
-
