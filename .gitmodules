@@ -1,3 +1,0 @@
-[submodule "playbooks/default/roles/common/files/dotfiles"]
-	path = playbooks/roles/common/files/dotfiles
-	url = git@github.com:fly/dotfiles.git
