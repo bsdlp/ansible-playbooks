@@ -1,5 +1,5 @@
 ---
-- hosts: mc_voltaire_sh
+- hosts: minecraft
   user: root
   roles:
-    - mc_voltaire_sh
+    - minecraft
