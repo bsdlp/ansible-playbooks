@@ -1,0 +1,5 @@
+---
+- hosts: mc_voltaire_sh
+  user: root
+  roles:
+    - mc_voltaire_sh
