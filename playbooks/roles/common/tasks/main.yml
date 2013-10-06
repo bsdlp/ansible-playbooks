@@ -6,11 +6,11 @@
   service: name=ssh state=restarted enabled=yes
 
 - name: add sources
-  copy: src=deb-sources.list
-        dest=/etc/apt/sources.list
-        owner=root
-        group=root
-        mode=0644
+  template: src=deb-sources.list
+            dest=/etc/apt/sources.list
+            owner=root
+            group=root
+            mode=0644
 
 - name: update apt cache
   raw: apt-get update
