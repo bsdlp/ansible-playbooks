@@ -24,6 +24,7 @@
 
 - name: install base packages
   apt: state=latest name=$item update_cache=yes
+  notify: purge nano
   with_items:
   - zsh
   - vim
