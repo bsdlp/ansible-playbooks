@@ -44,6 +44,9 @@
   - python-pip
   - stow
 
+- name: symlink python to python2
+  file: src=/usr/bin/python dest=/usr/bin/python2 state=link
+
 - name: reboot
   command: /sbin/reboot -t now
 
