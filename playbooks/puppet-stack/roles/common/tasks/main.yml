@@ -52,6 +52,3 @@
   get_url: url=http://apt.puppetlabs.com/puppetlabs-release-wheezy.deb dest=/opt/puppetlabs-release-wheezy.deb
   notify: add puppet repo
 
-- name: reboot
-  command: /sbin/reboot -t now
-
