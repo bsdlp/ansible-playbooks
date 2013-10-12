@@ -1,5 +1,0 @@
----
-- hosts: go_servers
-  user: root
-  roles:
-    - go_servers
