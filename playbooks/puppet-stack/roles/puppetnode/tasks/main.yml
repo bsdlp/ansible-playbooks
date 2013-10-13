@@ -1,4 +1,8 @@
 ---
-- name: install puppet node
-  apt: state=latest name=puppet update_cache=yes
+- name: install puppetmaster
+  apt: state=latest name=puppetmaster update_cache=yes
+
+- name: run puppet
+  command: /usr/bin/puppet resource service puppet ensure=running enable=true
+
 
