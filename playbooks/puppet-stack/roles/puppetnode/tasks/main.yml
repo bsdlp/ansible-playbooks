@@ -1,4 +1,11 @@
 ---
-- name: install puppet node
+- name: install puppet
   apt: state=latest name=puppet update_cache=yes
+
+- name: enable puppet
+  template: src=default-puppet dest=/etc/default/puppet
+
+- name: run puppet
+  command: /usr/bin/puppet resource service puppet ensure=running enable=true
+
 
