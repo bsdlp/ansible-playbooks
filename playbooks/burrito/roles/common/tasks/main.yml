@@ -1,0 +1,53 @@
+---
+- name: copy over sshd configuration
+  copy: src=sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0644
+
+- name: restart sshd
+  service: name=ssh state=restarted enabled=yes
+
+- name: add sources
+  template: src=deb-sources.list
+            dest=/etc/apt/sources.list
+            owner=root
+            group=root
+            mode=0644
+
+- name: update apt cache
+  raw: apt-get update
+
+- name: install python-apt
+  raw: apt-get -y install python-apt
+  notify: apt cache update
+
+- name: update system
+  apt: upgrade=dist
+
+- name: install base packages
+  apt: state=latest name=$item update_cache=yes
+  notify: purge nano
+  with_items:
+  - zsh
+  - vim
+  - git
+  - htop
+  - iftop
+  - mtr-tiny
+  - dnsutils
+  - screen
+  - sudo
+  - wget
+  - curl
+  - rsync
+  - build-essential
+  - python
+  - python-setuptools
+  - python-dev
+  - python-pip
+  - stow
+
+- name: symlink python to python2
+  file: src=/usr/bin/python dest=/usr/bin/python2 state=link
+
+- name: reboot
+  command: /sbin/reboot -t now
+
