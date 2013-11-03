@@ -4,14 +4,16 @@ settings {
     statusInterval = 20
 }
 
-sync {
-    default.rsync,
-    source="/srv/http/",
-    target="{{ LSYNCD_SLAVE }}:/srv/http/",
-    rsync = {
-        compress = true,
-        acls = true,
-        verbose = true,
-        rsh = "/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no"
-    }
+targetlist = {
+    {% for target in LSYNCD_TARGET %}
+        "{{ target }}",
+    {% endfor %}
 }
+
+for _, server in ipairs(targetlist) do
+    sync {
+        default.rsync,
+        source="/srv/http/",
+        target="server",
+        rsyncOps = "-lrtvupgoz --rsh='/usr/bin/ssh -p 22 -o StrictHostKeyChecking=no'"
+    }

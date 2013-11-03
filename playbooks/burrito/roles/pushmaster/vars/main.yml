@@ -1,0 +1,3 @@
+---
+- LSYNCD_TARGETS:
+    - 127.0.0.1:/srv/http/
