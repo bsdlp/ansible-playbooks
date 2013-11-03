@@ -1,0 +1,6 @@
+---
+- include: init.yml
+- hosts: pushmaster
+  user: root
+  roles:
+    - pushmaster
