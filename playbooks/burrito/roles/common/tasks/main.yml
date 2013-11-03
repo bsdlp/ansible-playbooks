@@ -44,7 +44,14 @@
   - python-dev
   - python-pip
   - rsync
+  - lsyncd
   - nginx
+
+- name: start nginx on boot
+  service: name=nginx enabled=yes state=started
+
+- name: start lsyncd on boot
+  service: name=lsyncd enabled=yes state=started
 
 - name: symlink python to python2
   file: src=/usr/bin/python dest=/usr/bin/python2 state=link
