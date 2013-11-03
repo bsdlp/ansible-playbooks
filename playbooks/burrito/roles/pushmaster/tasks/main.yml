@@ -2,3 +2,6 @@
 - name: nginx configuration
   copy: src=nginx.conf dest=/etc/nginx/nginx.conf force=yes
 
+- name: lsyncd configuration
+  template: src=lsyncd.j2 dest=/etc/lsyncd.lua owner=root mode=0644
+
